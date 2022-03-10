@@ -3,14 +3,14 @@ import datafusion
 
 if __name__ == "__main__":
     ctx = datafusion.ExecutionContext()
-    ctx.register_parquet("lineitem", "/tmp/tpch_sf1/lineitem/lineitem.parquet")
-    ctx.register_parquet("orders", "/tmp/tpch_sf1/orders/orders.parquet")
-    ctx.register_parquet("customer", "/tmp/tpch_sf1/customer/customer.parquet")
-    ctx.register_parquet("partsupp", "/tmp/tpch_sf1/partsupp/partsupp.parquet")
-    ctx.register_parquet("part", "/tmp/tpch_sf1/part/part.parquet")
-    ctx.register_parquet("nation", "/tmp/tpch_sf1/nation/nation.parquet")
-    ctx.register_parquet("region", "/tmp/tpch_sf1/region/region.parquet")
-    ctx.register_parquet("supplier", "/tmp/tpch_sf1/supplier/supploer.parquet")
+    ctx.register_parquet("lineitem", "/tmp/tpch_sf1_parquet/lineitem/lineitem.parquet")
+    ctx.register_parquet("orders", "/tmp/tpch_sf1_parquet/orders/orders.parquet")
+    ctx.register_parquet("customer", "/tmp/tpch_sf1_parquet/customer/customer.parquet")
+    ctx.register_parquet("partsupp", "/tmp/tpch_sf1_parquet/partsupp/partsupp.parquet")
+    ctx.register_parquet("part", "/tmp/tpch_sf1_parquet/part/part.parquet")
+    ctx.register_parquet("nation", "/tmp/tpch_sf1_parquet/nation/nation.parquet")
+    ctx.register_parquet("region", "/tmp/tpch_sf1_parquet/region/region.parquet")
+    ctx.register_parquet("supplier", "/tmp/tpch_sf1_parquet/supplier/supploer.parquet")
 
 
     query = """
