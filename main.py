@@ -19,7 +19,12 @@ if __name__ == "__main__":
     for query_file in querie_files:
         with open("queries/" + query_file, "r") as f:
             query = f.read()
-        print("Executing query: " + query_file)
-        result = ctx.sql(query).collect()
-        print(result)
-        print("\n")
+        
+        try:
+            print("Executing query: " + query_file)
+            result = ctx.sql(query).collect()
+            print(result)
+            print("\n")
+        except Exception as e:
+            print("Error: " + str(e))
+            print("\n")
