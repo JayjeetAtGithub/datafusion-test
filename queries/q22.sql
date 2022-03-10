@@ -1,31 +1,37 @@
-SELECT
+select
     cntrycode,
-    count(*) AS numcust,
-    sum(c_acctbal) AS totacctbal
-FROM (
-    SELECT
-        substring(c_phone FROM 1 FOR 2) AS cntrycode,
-        c_acctbal
-    FROM
-        customer
-    WHERE
-        substring(c_phone FROM 1 FOR 2) IN ('13', '31', '23', '29', '30', '18', '17')
-        AND c_acctbal > (
-            SELECT
+    count(*) as numcust,
+    sum(c_acctbal) as totacctbal
+from
+    (
+        select
+            substring(c_phone from 1 for 2) as cntrycode,
+            c_acctbal
+        from
+            customer
+        where
+                substring(c_phone from 1 for 2) in
+                ('13', '31', '23', '29', '30', '18', '17')
+          and c_acctbal > (
+            select
                 avg(c_acctbal)
-            FROM
+            from
                 customer
-            WHERE
-                c_acctbal > 0.00
-                AND substring(c_phone FROM 1 FOR 2) IN ('13', '31', '23', '29', '30', '18', '17'))
-            AND NOT EXISTS (
-                SELECT
+            where
+                    c_acctbal > 0.00
+              and substring(c_phone from 1 for 2) in
+                  ('13', '31', '23', '29', '30', '18', '17')
+        )
+          and not exists (
+                select
                     *
-                FROM
+                from
                     orders
-                WHERE
-                    o_custkey = c_custkey)) AS custsale
-GROUP BY
+                where
+                        o_custkey = c_custkey
+            )
+    ) as custsale
+group by
     cntrycode
-ORDER BY
+order by
     cntrycode;
