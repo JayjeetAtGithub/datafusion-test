@@ -10,7 +10,7 @@ if __name__ == "__main__":
     ctx.register_parquet("part", "/tmp/tpch_sf1_parquet/part/part.tbl.parquet")
     ctx.register_parquet("nation", "/tmp/tpch_sf1_parquet/nation/nation.tbl.parquet")
     ctx.register_parquet("region", "/tmp/tpch_sf1_parquet/region/region.tbl.parquet")
-    ctx.register_parquet("supplier", "/tmp/tpch_sf1_parquet/supplier/supploer.tbl.parquet")
+    ctx.register_parquet("supplier", "/tmp/tpch_sf1_parquet/supplier/supplier.tbl.parquet")
 
 
     query = """
